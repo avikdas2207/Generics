@@ -1,31 +1,39 @@
 package Generics;
 
-public class PrintMax {
+public class PrintMax<T extends Comparable<T>> {
 
-	//To get the max value of the passed T type array
-	public static <T extends Comparable<T>> T getMax( T [] array) 
+	T input1, input2, input3;
+	
+	//Constructor
+	public PrintMax(T input1, T input2, T input3)
 	{
-		T max = array[0];
-		
-		for (T element : array)
-		{
-			if (element.compareTo(max) > 0)
-				max = element;
-		}
+		this.input1 = input1;
+		this.input2 = input2;
+		this.input3 = input3;
+	}
+	
+	//To get the max value of the passed T type array
+	public static <T extends Comparable<T>> T getMax(T input1, T input2, T input3) 
+	{
+		T max = input1;
+		if(input2.compareTo(max) > 0)
+			max = input2;
+		if(input3.compareTo(max) > 0)
+			max = input3;
 		return max;
+	}
+	
+	//To call this method on objects of class PrintMax
+	public T getMax()
+	{
+		return PrintMax.getMax(this.input1, this.input2, this.input3);
 	}
 	
 	public static void main(String[] args) 
 	{
-		Integer [] intArray = {11, 23, 33};
-		Float [] floatArray = {1.1f, 2.3f, 3.3f};
-		String [] stringArray = {"Apple", "Pineapple", "Banana"};
-		Double [] doubleArray = {1d, 2d, 4d};
-		
-		System.out.println(getMax(intArray));
-		System.out.println(getMax(floatArray));
-		System.out.println(getMax(stringArray));
-		System.out.println(getMax(doubleArray));
+		System.out.println(new PrintMax(3,4,5).getMax());
+		System.out.println(new PrintMax(3.5f,4.5f,5.5f).getMax());
+		System.out.println(new PrintMax("Apple","Pineapple","Zebra").getMax());
 
 	}
 
