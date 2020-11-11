@@ -26,14 +26,21 @@ public class PrintMax<T extends Comparable<T>> {
 	//To call this method on objects of class PrintMax
 	public T getMax()
 	{
+		printMax(PrintMax.getMax(this.inputArr));
 		return PrintMax.getMax(this.inputArr);
 	}
 	
+	private void printMax(T max) 
+	{
+		System.out.println(max);
+	}
+
 	public static void main(String[] args) 
 	{
-		System.out.println(new PrintMax<Integer>(3, 4, 5, 9, 238).getMax());
-		System.out.println(new PrintMax<Float>(3.5f,4.5f,5.5f, 2000.0f).getMax());
-		System.out.println(new PrintMax<String>("Apple","Pineapple","Hyena","Zebra").getMax());
+		new PrintMax<Integer>(3, 4, 5, 9, 238).getMax();
+		new PrintMax<Float>(3.5f,4.5f,5.5f, 2000.0f).getMax();
+		new PrintMax<String>("Apple","Pineapple","Hyena","Zebra").getMax();
+
 	}
 
 }
