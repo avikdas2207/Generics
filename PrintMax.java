@@ -1,47 +1,41 @@
-package Generics;
+package com.bridgelabz.generics_main;
 
-public class PrintMax<T extends Comparable<T>> {
+public class PrintMax {
 
-	T [] inputArr;
-	
-	//Constructor
-	public PrintMax(T ... inputArr)
+	//To get the max value of the passed int array
+	public static Integer getMax( Integer [] array) 
 	{
-		this.inputArr = inputArr;
-	}
-	
-	//To get the max value of the passed T type array
-	public static <T extends Comparable<T>> T getMax(T [] inputArr) 
-	{
-		T max = inputArr[0];
+		Integer max = array[0];
 		
-		for (T element : inputArr)
+		for (Integer num : array)
 		{
-			if(element.compareTo(max) > 0)
-				max = element;
+			if (num.compareTo(max) > 0)
+				max = num;
 		}
 		return max;
 	}
-
-	//To call this method on objects of class PrintMax
-	public T getMax()
+	
+	//To get the max value of the passed float array
+	public static Float getMax( Float [] array) 
 	{
-		printMax(PrintMax.getMax(this.inputArr));
-		return PrintMax.getMax(this.inputArr);
+		Float max = array[0];
+		
+		for (Float num : array)
+		{
+			if (num.compareTo(max) > 0)
+				max = num;
+		}
+		return max;
 	}
 	
-	//Method to print maximum number
-	private void printMax(T max) 
-	{
-		System.out.println(max);
-	}
-
-	//Main method
 	public static void main(String[] args) 
 	{
-		new PrintMax<Integer>(3, 4, 5, 9, 238).getMax();
-		new PrintMax<Float>(3.5f,4.5f,5.5f, 2000.0f).getMax();
-		new PrintMax<String>("Apple","Pineapple","Hyena","Zebra").getMax();
+		Integer [] intArray = {11, 23, 33};
+		Float [] floatArray = {1.1f, 2.3f, 3.3f};
+		
+		System.out.println(PrintMax.getMax(intArray));
+		System.out.println(PrintMax.getMax(floatArray));
+
 	}
 
 }
