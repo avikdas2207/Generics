@@ -1,4 +1,4 @@
-package com.bridgelabz.generics_main;
+package Generics;
 
 public class PrintMax {
 
